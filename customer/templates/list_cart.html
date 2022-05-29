@@ -1,0 +1,33 @@
+{%extends 'cbase.html'%}
+
+
+{%block body_block%}
+
+<div class="container">
+    {%for cart in carts%}
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <img src="{{cart.book.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <ul class="list-group">
+                <li class="list-group-item">{{cart.book.book_name}}</li>
+                <li class="list-group-item">{{cart.book.author}}</li>
+                <li class="list-group-item">{{cart.book.price}}</li>
+                <li class="list-group-item">{{cart.book.copies}}</li>
+                <a href="{%url 'ordercreate' cart.id cart.book.id %}">Place Order</a>
+
+            </ul>
+
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}

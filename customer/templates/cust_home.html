@@ -1,0 +1,30 @@
+{%extends 'cbase.html'%}
+{%block body_block%}
+
+
+<h1>welcome {{request.user}}</h1>
+<div class="row">
+    {%for book in books%}
+    <div class="col-lg-3 col-md-4 col-6">
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{book.image.url}}" class="card-img-top" alt="..." height="250px">
+            <div class="card-body">
+                <h5 class="card-title">{{book.book_name}}</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{book.author}}</li>
+                <li class="list-group-item">{{book.price}}</li>
+                <li class="list-group-item">{{book.copies}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="{%url 'addtocart' book.id%}"  class="card-link">Add to cart</a>
+                <a href="#" class="card-link">View</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+</div>
+{%endblock%}

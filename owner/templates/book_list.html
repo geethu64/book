@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+ <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+          <table class="table">
+              <tr>
+                  <td>Book Name</td>
+                  <td>Author</td>
+                  <td>Price</td>
+                  <td>Copies</td>
+              </tr>
+
+              <!--djanco template language -->
+              {%for book in books%}
+              <tr>
+                  <td>
+                      {{book.book_name}}
+                  </td>
+                  <td>
+                      {{book.author}}
+                  </td>
+                  <td>
+                      {{book.price}}
+                  </td>
+                  <td>
+                      {{book.copies}}
+                  </td>
+                  <td>
+                      <a href="{%url 'bookdetail' book.id%}" class="btn btn-outline-primary">View</a>
+
+
+                      <a href="{%url 'editbook' book.id%}" class="btn btn-outline-primary">Edit</a>
+                      <a href="{%url 'removebook' book.id%}"class="btn btn-outline-primary">Delete</a>
+                  </td>
+
+              </tr>
+
+              {% endfor %}
+          </table>
+      </div>
+      <div class="col-4"></div>
+  </div>
+
+{%endblock%}

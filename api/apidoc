@@ -1,0 +1,24 @@
+
+appi/v1/books/
+    method=post
+    data={
+    "book_name":"mybook","author":"author name",
+    copies:25,"price":25,"image":"path"
+    }
+    method=GET
+    retrun all book objects
+
+ api/books/{id}
+    method:get
+    return details of book having id=id
+
+
+    method:put
+    update book object with id
+     data={
+    "book_name":"mybook","author":"author name",
+    copies:25,"price":25,"image":"path"
+    }
+
+    method:delete
+        delete book with id=id
